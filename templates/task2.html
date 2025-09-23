@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Task2{% endblock %}
+{% block body %}
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-lg" style="width: 600px;">
+            {% if stage in [2, 4] %}
+            <div id="countdown-timer" class="alert alert-warning text-center">
+                Please wait <span id="time">1:30</span> for your hint...
+            </div>
+            {% endif %}
+            <!-- Image Section -->
+            <div class="mb-4 text-center">
+                <img src="{{ url_for('static', filename='classification1.jpg') }}" 
+                    alt="Model Image" 
+                    class="img-fluid rounded shadow-sm"
+                    style="max-height: 350px; object-fit: contain;">
+            </div>
+
+        <!-- Form -->
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="userInput" class="form-label fw-bold">Enter the model:</label>
+                    <input type="text" class="form-control" id="userInput" name="userInput"
+                        placeholder="Enter the correct model!"
+                        {% if stage in [2,4,6] %} disabled {% endif %}>
+                </div>
+
+            <!-- Buttons Section -->
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                    <button type="submit" class="btn btn-success px-4"
+                    {% if stage in [2,4,6] %} disabled {% endif %}>Submit</button>
+                    <a class="btn btn-secondary px-4" href="{{ url_for('dashboard') }}" role="button">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if stage in [2, 4] and expiration_time %}
+        <script>
+            function startPersistentCountdown(expirationTimeISO, display) {
+                const expirationTime = new Date(expirationTimeISO);
+
+                const intervalId = setInterval(function () {
+                    const now = new Date();
+                    const timeLeft = expirationTime - now;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(intervalId);
+                        window.location.reload();
+                        return;
+                    }
+                    const totalSeconds = Math.floor(timeLeft / 1000);
+                    let minutes = Math.floor(totalSeconds / 60);
+                    let seconds = totalSeconds % 60;
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+                }, 1000);
+            }
+
+            window.onload = function () {
+                const display = document.querySelector('#time');
+                const expirationTimeFromFlask = '{{ expiration_time }}';
+                
+                if (display && expirationTimeFromFlask) {
+                    startPersistentCountdown(expirationTimeFromFlask, display);
+                }
+            };
+        </script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="option-box text-center">
+            <h2 class="mb-4">Choose your Task!</h2>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ url_for('task1') }}" class="btn btn-success btn-lg {% if not task_val1 %}disabled{% endif %}">Task 1</a>
+                <a href="{{ url_for('task2') }}" class="btn btn-success btn-lg {% if not task_val2 %}disabled{% endif %}">Task 2</a>
+                <a href="{{ url_for('task3') }}" class="btn btn-success btn-lg {% if not task_val3 %}disabled{% endif %}">Task 3</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

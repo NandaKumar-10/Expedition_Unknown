@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}login{% endblock %}
+{% block body %}
+    <div class="login-container">
+        <div class="card login-card" style="width: 25rem;">
+            <div class="card-body">
+                <h4 class="card-title text-center">Login Form </h4>
+                <form method="POST" class="form-login">
+                    {{ form.hidden_tag() }}
+                    <br>
+                    <div class="form-group m-3">
+                        {{ form.email.label(class="form-label") }}
+                        {{ form.email(class='form-control',placeholder='Enter Email') }}
+                        <br>
+                        {{ form.password.label(class="form-label") }}
+                        {{ form.password(class='form-control',placeholder='Enter Password') }}
+                    </div>
+                    <div class="text-center m-4">
+                        {{ form.submit(class="btn btn-outline-success me-4 px-4") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,152 @@
+/* body{
+            background-image: url("Background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+}
+
+.option-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px 40px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+} */
+
+.option-box {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 20px 40px;
+  color: white;
+}
+
+.card {
+    background: transparent;
+    border: 2px solid rgba(0, 255, 200, 0.6);
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+}
+
+.card label,
+.card .form-label,
+.card .alert {
+    color: #00ffc3;
+    text-shadow: 0 0 5px #00ffc3;
+}
+
+.form-control {
+    background: #111;
+    border: 1px solid rgba(0, 255, 200, 0.3);
+    color: #00ffc3;
+}
+
+.btn-success {
+    background: linear-gradient(90deg, #309373, #2fd4f9);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 200, 0.8);
+    transition: 0.2s;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #333;
+    border: none;
+    color: #ccc;
+}
+
+.navbar-custom {
+    background: linear-gradient(90deg, #48c6ef, #6f86d6); /* gradient */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar-brand h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffe082 !important;
+}
+
+/* static/style.css */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    /* --- Background Image Settings --- */
+    /* Replace 'background.jpg' with your image file name */
+    background-image: url('Background.png'); 
+    
+    /* Make the image cover the entire screen */
+    background-size: cover;
+    
+    /* Center the image */
+    background-position: center;
+    
+    /* Prevent the image from repeating */
+    background-repeat: no-repeat;
+    
+    /* Fix the background in place during scroll */
+    background-attachment: fixed; 
+}
+
+/* --- Login Page Specific Container --- */
+.login-container {
+    /* Use flexbox for easy alignment */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+
+    /* Set the container height to fill most of the screen */
+    min-height: 90vh; 
+    
+    /* THIS IS THE KEY PART: Add padding to the top */
+    /* This pushes the login box down from the vertical center */
+    padding-top: 15vh; /* Adjust this value to move it up or down */
+}
+
+/* --- Styling for the Login Card --- */
+.login-card {
+    /* Make the card background semi-transparent */
+    background-color: rgba(10, 25, 40, 0.75);
+    
+    /* Add a subtle glowing border */
+    border: 1px solid #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+
+    /* Set text color to white for readability */
+    color: #ffffff;
+}
+
+/* Style the text and inputs inside the card */
+.login-card .card-title,
+.login-card .form-label {
+    color: #ffffff;
+}
+
+.login-card .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00aaff;
+    color: #ffffff;
+}
+
+/* Change placeholder text color */
+.login-card .form-control::placeholder {
+    color: #bbbbbb;
+}
