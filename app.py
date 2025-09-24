@@ -5,6 +5,7 @@ app=Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY']='4a778f29ce6868c886b0f979'
+app.secret_key = "supersecret_key"
 
 db.init_app(app)
 init_routes(app)
